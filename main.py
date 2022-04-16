@@ -13,7 +13,7 @@ class Fraternity:
         self.time = time
         self.meals = meals 
         
-class Sorority:
+class Sorority: #inherit fraternity 
     sororities = []
 
     def __init__(self, name, location, time, meals):
@@ -43,7 +43,8 @@ def upload_donation(donationn):
 
 
 
-
+def parse_args():
+    
 
 #functionality
 def main(daily):
