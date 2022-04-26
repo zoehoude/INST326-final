@@ -9,7 +9,9 @@ class Fraternity:
         entree = input("Entree?")
         sides = input("sides?")
         packaged = input("pack?")
-        order = [entree, sides, packaged]
+        servings = input("How many servings do you have leftover?:")
+        allergens = input("Does this food have potential allergens?:")
+        order = [entree, sides, packaged, servings, allergens]
         finished = [frat, order]
         print(finished)
 
@@ -17,26 +19,34 @@ class Sorority:
     def __init__(self, sor):
         self.sor = sor
         entree = input("Entree?")
-        sides = input("sides?")
+        sides = input("sides?") 
         packaged = input("pack?")
-        order = [entree, sides, packaged]
+        servings = input("How many servings do you have leftover?:")
+        allergens = input("Does this food have potential allergens?:")
+        order = [entree, sides, packaged, servings, allergens]
         finished = [sor, order]
         print(finished)
        
 
-#acting as main. should be a loop for each time a new input is created, a new frat or sorioert
+#acting as main. should be a loop for each time a new input is created, a new frat or soriority
+#regex functions limit user input to avoid errors in address, food input, name input, etc.
+
 print("welcome")
 x = input("Frat or Sor?:")
 if x == "Frat":
     Fname = input("Greek Letters: ")
+    if not  re.match("[A-Za-z](?=)")
     Flocation = input("Street Address as '123 Rocky Road': ")
+    if not  re.match("[A-Za-z0-9](?=)")
     frat = [Fname, Flocation]
     Fraternity(frat)
     exit()
     
 if x == "Sor":
     Sname = input("Greek Letters: ")
+    if not  re.match("[A-Za-z](?=)")
     Slocation = input("Street Address as '123 Rocky Road': ")
+    if not  re.match("[A-Za-z0-9](?=)")
     sor = [Sname, Slocation]
     Sorority(sor)
     exit()
