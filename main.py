@@ -1,53 +1,35 @@
 """Zoe Houde & Ethan Meyer
 Final Project INST326"""
 
-"""Our Python File will be seperated by three parts: classes, functions, and functionality."""
-
-#classes
-
+"""This is the hardoced version of the outline. We need to get the array saved so its not hardcoded in by using self. methods
+I was was also going to add a more complex imput for meal, amount just stood as a place holder"""
 class Fraternity:
-    fraternity = []
-    def __init__(self, name, location, time, meals):
-        self.name = name
-        self.location = location
-        self.time = time
-        self.meals = meals 
+    
+    def __init__(self):
+        
+        frats = []
+        name = input("Greek Letters: ")
+        location = input("Street Address as '123 Rocky Road': ")
+        meal = input("amount:")
+        frat = [name, location, meal]
+        print(frat)
         
 class Sorority:
-    sororities = []
-
-    def __init__(self, name, location, time, meals):
-        self.name = name
-        self.location = location
-        self.time = time
-        self.meals = meals 
+    def __init__(self)
+    sor = []
+    name = input("Greek Letters: ")
+    location = input("Street Address as '123 Rocky Road': ")
+    meal = input("amount:")
+    sor = [name, location, meal]
+    print(sor)
+           
+  
+#acting as main
+x = input("Frat or Sor")
+if x == "Frat":
+    Fraternity()
+if x == "Sor":
+    Sorority()
     
-    
-
-class Service_Center:
-    service_cetner = []
-    """This empty array will contain the name of serice_centers on file as well as their location"""
-    pass
 
 
-
-#Functions. These functions will exist within both sorority and fratnerity classes
-def check_food():
-    """This function will confirm the donation information from the upload_donation function"""
-    pass
-    
-    
-def upload_donation(donationn):
-    """either sorority or fraternity object will upload their name, type of food, time for pick up, and location """
-    pass
-
-
-
-
-
-#functionality
-def main(daily):
-    pass
-
-if __name__ == "__main__":
-    main(daily)
