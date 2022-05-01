@@ -12,8 +12,9 @@ class Fraternity:
         packaged = input("pack?")
         servings = input("How many servings do you have leftover?:")
         allergens = input("Does this food have potential allergens?:")
+        pick_up = input("What time can we pick up? (530-630, 630-730, 730-830):"
         order = [entree, sides, packaged, servings, allergens]
-        finished = [frat, order]
+        finished = [frat, order, pick_up]
         print(finished)
 
 class Sorority:
@@ -24,9 +25,38 @@ class Sorority:
         packaged = input("pack?")
         servings = input("How many servings do you have leftover?:")
         allergens = input("Does this food have potential allergens?:")
+        pick_up = input("What time can we pick up? (530-630, 630-730, 730-830):"
         order = [entree, sides, packaged, servings, allergens]
-        finished = [sor, order]
+        finished = [sor, order, pick_up]
         print(finished)
+        
+        
+class preg_aid_center:
+    def __init__(self, pac):
+        bank_name_pac = "Pregnancy Aid Center INC - Food Distribution Center"
+        address = "4809 Greenbelt Rd, College Park, MD 20740"
+        pref_pick_up_time = {6,7} #tuple for pick up times 6-7
+        phone = "3014119150"
+        pac_info = [bank_name_pac, phone, pref_pick_up_time]
+ 
+        
+class takoma_park_food:
+    def __init__(self, takoma):
+        bank_name_takoma = "Takoma Park Food Pantry"
+        address = "7001 New Hampshire Ave, Takoma Park, MD 20912"
+        pref_pick_up_time = {530,630} 
+        phone = "2404502092" #is there a way we can hyper link this so when it prints on the screen thte app can just click 
+        takoma_info = [bank_name_takoma,  phone, pref_pick_up_time]
+        
+        
+class umd_food:
+    def __init__(self, umd):
+        bank_name_umd = "UMD Campus Pantry"
+        address = "South Campus Dining Hall, 7093 Preinkert Dr, College Park, MD 20740"
+        pref_pick_up_time = {730,830} 
+        phone = "3014059579"
+        umd_info = [bank_name_umd,  phone, pref_pick_up_time]
+        
        
 
 #acting as main. should be a loop for each time a new input is created, a new frat or soriority
@@ -56,16 +86,17 @@ elif x =="Sorority":
         Sorority(Sname)
         exit()
         
-  
 else:
     print("please try again")
 
 
+#comparing pickup times from soroiry/frat input to the times the food banks selectted previously
 
-
-
-
-
+if pick_up == pref_pick_up_time:
+    print(umd_info)
+                        
+else:
+    print("Try again")
     
 
 
