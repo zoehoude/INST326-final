@@ -66,5 +66,25 @@ class umd_food:
     
     
 def conditions(order, centers)
+
+
+
+
+#i know youre changing the idea but this is a stucture we can use
+def matching(self,umd,takoma,pac):
+    '''comparing pickup times from soroiry/frat input to the times the food banks selected previously, printing matches'''
+    if pick_up == pref_pick_up_time_umd:
+        print("Your time input matches with", umd_info, "please contact for further drop off or pick up information")            
+    elif pick_up == pref_pick_up_time_pac:
+        print("Your time input matches with", pac_info, "please contact for further drop off or pick up information")
+    elif pick_up == pref_pick_up_time_takoma:
+        print("Your time input matches with", takoma_info, "please contact for further drop off or pick up information")       
+    else:
+        print("Try again, time input not valid")
+
+        #instance variable shoudl run through greek entity
+if __name__ == "__main__":
+    print("Please begin prompt to fufuil your order")
+    start_var = Greek() 
         
         
