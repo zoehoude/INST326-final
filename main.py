@@ -1,10 +1,14 @@
 
 
+
 import re
+"""Classes
+
+    Class Greek stores the Chapter's donation order"""
 
 class Greek:
     
-    def pp(key):
+    def order(key):
         
         """order is the stored donation"""
         
@@ -12,9 +16,9 @@ class Greek:
         
         entree = input("What is the main course?")
         sides = input("What are the sides to go with?")
-        packaged = input("Is the item packaged and ready for storage? (Y/N)")
+        packaged = input("Is the item packaged? (Y/N)")
         serving_weight = input("Total Weight of Donation?")
-        time = input("Select a pick up time /n(5:30-6:30) or (6:30-7:30) or (7:30-8:30)\nInput 1, 2, or 3 accordingly")
+        time = input("\nSelect a pick up time \n(5:30-6:30) or (6:30-7:30) or (7:30-8:30)\nInput 1, 2, or 3 accordingly\n")
         
         """appending the dictionary to order"""
         order['entree'] = entree
@@ -27,7 +31,7 @@ class Greek:
     
         
     
-"""three sample service centers"""    
+"""three sample Class service centers"""    
 class preg_aid_center:
     def info():
         pac_data = {}
@@ -44,12 +48,7 @@ class preg_aid_center:
         pac_data['Weight Limit'] = maxlbs
         return pac_data
     
-    
-    
-        
-        
-        
- 
+
         
 class takoma_park_food:
     def info():
@@ -90,7 +89,7 @@ class umd_food:
         
     
     
-"""functions conditions / order format /  and main"""   
+"""functions conditions and confirm order"""  
 
     
 def main():
@@ -98,7 +97,7 @@ def main():
     while loop == True:
         frats ={}
         sor = {}
-        x = input("Welcome to GreekFeeds, a non-profit with the purpose of donating left-over food from Greek Life Chapters.\n To begin please state whether you represent a Fraternity of Sorority.")
+        x = input("Welcome to GreekFeeds, a non-profit with the purpose of donating left-over food from Greek Life Chapters.\n To begin please state whether you represent a Fraternity of Sorority:")
     
         if x == "Fraternity":
             f = input("Hello Brothers, \nTo begin type in your chapter letters: ")
@@ -129,7 +128,7 @@ def main():
             
         break    
      
-    order = Greek.pp(f)
+    order = Greek.order(f)
     oTime = order.get('time')
     oWeight = order.get('serving_weight')
     oTime = int(oTime)
@@ -156,7 +155,9 @@ def conditions(weight, time):
         return umd
     
     else:
-        print("negative")
+        error = 0
+        
+        return error
     
 
 
@@ -170,31 +171,52 @@ def confirm_order(orderdict, chardict):
     cname = chardict.get('name')
     caddy =chardict.get('address')
     ccontact = chardict.get('contact')
-    x = print("Your order of " + entree + "with the sides of " + sides+ ", weighing at " + weight +" lbs"+"\nWill be picked up by "+cname+ " and brought to the address of "+caddy+ "at time "+time"\nIf you have any questions please contact "+ccontact +"\n Time Key: 1 = 5:30-6:30pm, 2 = 6:30-7:00pm, 3 = 7:30pm - 8:30pm")
-    return x
+    written = print("Your order of " + entree + " with the sides of " + sides+ ", weighing at " + weight +" lbs"+"\nWill be picked up by "+cname+ " and brought to the address of "+caddy+ "at time "+time+"\nIf you have any questions please contact "+ccontact +"\n Time Key: 1 = 5:30-6:30pm, 2 = 6:30-7:00pm, 3 = 7:30pm - 8:30pm")
+    return written
 
     
 
     
-
+""" MAIN statement"""
        
 if __name__ == "__main__":
     
-    x = main()
-    current_ords =x[0]
-    time = x[1]
-    weight = x[2]
-    fratsdict = x[3]
-    sordict = x[4]
-    y = conditions(weight, time)
-    p = confirm_order(current_ords, y)
+    mainz = main()
+    current_ords =mainz[0]
+    time = mainz[1]
+    weight = mainz[2]
+    fratsdict = mainz[3]
+    sordict = mainz[4]
+    con = conditions(weight, time)
+    fin = confirm_order(current_ords, con)
     
     
     
     
     
     
-   
+"""TEST CASES"""  
+
+def test_conditions_pac():
+    assert conditions(10, 1) == preg_aid_center.info()
+    
+def test_conditions_tak():
+    assert conditions(20, 2) == takoma_park_food.info()
+    
+def test_conditions_umd():
+    assert conditions(80, 3) == umd_food.info()
+
+def test_conditions_error():
+    assert conditions(400,3) == 0
+    
+test_conditions_pac()
+test_conditions_tak()
+test_conditions_umd()
+test_conditions_error()
+
+
+
+    
     
    
             
