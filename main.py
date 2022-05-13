@@ -1,15 +1,20 @@
 
+
 import re
 
 class Greek:
-    def __init__(self):
+    
+    def pp(key):
+        
         """order is the stored donation"""
+        
         order = {'entree': "empty", 'sides': "empty", 'packaged': "empty", 'serving_weight': 0, 'time': 0}
+        
         entree = input("What is the main course?")
         sides = input("What are the sides to go with?")
         packaged = input("Is the item packaged and ready for storage? (Y/N)")
         serving_weight = input("Total Weight of Donation?")
-        time = input("Select a pick up time /n(5:30-6:30) or (6:30-7:30) or (7:30-8:30)/nInput 1, 2, or 3 accordingly")
+        time = input("Select a pick up time /n(5:30-6:30) or (6:30-7:30) or (7:30-8:30)\nInput 1, 2, or 3 accordingly")
         
         """appending the dictionary to order"""
         order['entree'] = entree
@@ -18,86 +23,203 @@ class Greek:
         order['serving_weight'] = serving_weight
         order['time'] = time
         return order
+        
+    
+        
     
 """three sample service centers"""    
 class preg_aid_center:
-    def __init__(self, pac):
+    def info():
         pac_data = {}
         '''initializing functions, variables,getting user input, combining inputs into lists for pac'''
         bank_name_pac = "Pregnancy Aid Center INC - Food Distribution Center"
         address = "4809 Greenbelt Rd, College Park, MD 20740"
-        only_time = "5:30-6:30"
+        only_time = 1
         phone = "3014119150"
+        maxlbs = 20
         pac_data['name'] = bank_name_pac
         pac_data['address'] = address
         pac_data['time Available'] = only_time
         pac_data['contact'] = phone
+        pac_data['Weight Limit'] = maxlbs
         return pac_data
+    
+    
+    
+        
+        
+        
  
         
 class takoma_park_food:
-    def __init__(self, takoma):
-        takoma_data = {}
+    def info():
+        takoma_data ={}
+        
+        
         '''initializing functions, variables,getting user input, combining inputs into lists for takoma'''
         bank_name_takoma = "Takoma Park Food Pantry"
         address = "7001 New Hampshire Ave, Takoma Park, MD 20912"
-        only_time = "6:30-7:30"
+        only_time = 2
         phone = "2404502092" 
+        maxlbs = 30
         takoma_data['name'] = bank_name_takoma
         takoma_data['address'] = address
         takoma_data['time Available'] = only_time
         takoma_data['contact'] = phone
+        takoma_data['Weight Limit'] = maxlbs
         return takoma_data
-        
+      
         
 class umd_food:
-    def __init__(self, umd):
+    def info():
         umd_data = {}
         '''initializing functions, variables,getting user input, combining inputs into lists for umd food bank'''
         bank_name_umd = "UMD Campus Pantry"
         address = "South Campus Dining Hall, 7093 Preinkert Dr, College Park, MD 20740"
-        only_time = {730,830} 
+        only_time = 3
         phone = "3014059579"
+        maxlbs = 100
         umd_data['name'] = bank_name_umd
         umd_data['address'] = address
         umd_data['time Available'] = only_time
         umd_data['contact'] = phone
+        umd_data['Weight Limit'] = maxlbs
         return umd_data
     
+       
+        
     
-def conditions(order, centers)
+    
+"""functions conditions / order format /  and main"""   
 
-
-
-
-#i know youre changing the idea but this is a stucture we can use
-def matching(self,umd,takoma,pac):
-    '''comparing pickup times from soroiry/frat input to the times the food banks selected previously, printing matches'''
-    if time == only_time and serving_weight '''<,>,= ___''':
-        print("Your time input matches with", bank_name_umd, "please contact for further drop off or pick up information")            
-    elif time == only_tim eand serving_weight '''<,>,= ___'''::
-        print("Your time input matches with", bank_name_pac, "please contact for further drop off or pick up information")
-    elif time == only_time and serving_weight '''<,>,= ___'''::
-        print("Your time input matches with", bank_name_takoma, "please contact for further drop off or pick up information")       
+    
+def main():
+    loop = True
+    while loop == True:
+        frats ={}
+        sor = {}
+        x = input("Welcome to GreekFeeds, a non-profit with the purpose of donating left-over food from Greek Life Chapters.\n To begin please state whether you represent a Fraternity of Sorority.")
+    
+        if x == "Fraternity":
+            f = input("Hello Brothers, \nTo begin type in your chapter letters: ")
+            while f not in frats:
+                Faddy = input("It appears this is your first!\nLets add you in our system for the future. Enter your address:")
+                frats[f] = Faddy
+            
+            fchoice = input("Would you like to continue to a donation or back to home? (yes or no)")
+            if fchoice =="yes":
+                    
+                break
+            else:
+                continue
+                   
+        elif x == "Sorority":
+            s = input("Hello Sisters, \nTo begin type in your chapter letters: ")
+            if s not in sor:
+                Saddy = input("It appears this is your first!\nLets add you in our system for the future. Enter your address:")
+                sor[s] = Saddy
+                schoice = input("Would you like to continue to a donation or add another chapter? (yes or no)")
+                if schoice =="yes":
+                    break
+                    
+                else:
+                   continue
+        else:
+            print("Could be a typo. Retry using Sorority or Fraternity ")
+            
+        break    
+     
+    order = Greek.pp(f)
+    oTime = order.get('time')
+    oWeight = order.get('serving_weight')
+    oTime = int(oTime)
+    oWeight = int(oWeight)
+    
+    
+    
+   
+    return order, oTime, oWeight, frats, sor
+    
+    
+def conditions(weight, time):
+    pac = preg_aid_center.info()
+    tak = takoma_park_food.info()
+    umd = umd_food.info()
+    
+    
+    
+    if (weight <= 20 and time == 1):
+        return pac 
+    elif (weight <= 30 and time == 2):
+        return tak  
+    elif (weight <= 100 and time == 3):
+        return umd
+    
     else:
-        print("Try again, time input not valid")
-        
-        
-class Test():
-    def test_pac():
-        assert(pac_data("10lb"), True)
+        print("negative")
+    
 
-    def test_umd():
-        assert((""), False)
 
-    def test_takoma():
-        assert((""), False)
+def confirm_order(orderdict, chardict):
+    entree = orderdict.get('entree')
+    sides = orderdict.get('sides')
+    packaged = orderdict.get('packaged')
+    weight = orderdict.get('serving_weight')
+    time = orderdict.get('time')
+    
+    cname = chardict.get('name')
+    caddy =chardict.get('address')
+    ccontact = chardict.get('contact')
+    x = print("Your order of " + entree + "with the sides of " + sides+ ", weighing at " + weight +" lbs"+"\nWill be picked up by "+cname+ " and brought to the address of "+caddy+ "at time "+time"\nIf you have any questions please contact "+ccontact +"\n Time Key: 1 = 5:30-6:30pm, 2 = 6:30-7:00pm, 3 = 7:30pm - 8:30pm")
+    return x
 
-        
-        
-#instance variable shoudl run through greek entity
+    
+
+    
+
+       
 if __name__ == "__main__":
-    print("Please begin prompt to fufuil your order")
-    start_var = Greek() 
+    
+    x = main()
+    current_ords =x[0]
+    time = x[1]
+    weight = x[2]
+    fratsdict = x[3]
+    sordict = x[4]
+    y = conditions(weight, time)
+    p = confirm_order(current_ords, y)
+    
+    
+    
+    
+    
+    
+   
+    
+   
+            
+    
+
+    
         
+    
+   
+    
+        
+    
+    
+   
+       
+    
+    
+    
+    
+    
+    
+        
+         
+            
+            
+        
+    
         
